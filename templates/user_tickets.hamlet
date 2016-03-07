@@ -76,7 +76,7 @@
 
         <td>
           $maybe user_entity <- u
-            <a href=@{UserR $ entityKey user_entity}>
+            <a href=@{UserR $ userNick $ entityVal user_entity}>
               #{userDisplayName user_entity}
 
         <td>

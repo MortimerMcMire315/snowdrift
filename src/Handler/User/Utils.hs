@@ -31,7 +31,7 @@ resetPassphrase user_id user passphrase passphrase' route =
                 updateUserPassphraseDB user_id (userHash user') (userSalt user')
                 deleteFromResetPassphrase user_id
             alertSuccess "You successfully updated your passphrase."
-            redirect $ UserR user_id
+            redirect $ UserR $ userNick user'
         else do
             alertDanger "The passphrases you entered do not match."
             redirect route

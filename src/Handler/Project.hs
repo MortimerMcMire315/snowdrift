@@ -433,21 +433,23 @@ getInviteR project_handle = do
 
     outstanding_invites <- runDB $
         select $
-        from $ \invite -> do
+        from $ \ (invite `InnerJoin` user) -> do
+        on_ $ invite ^. InviteUser ==. user ^. UserId
         where_ ( invite ^. InviteRedeemed ==. val False )
         orderBy [ desc (invite ^. InviteCreatedTs) ]
-        return invite
+        return (invite, user ^. UserNick)
 
     redeemed_invites <- runDB $
         select $
-        from $ \invite -> do
-        where_ ( invite ^. InviteRedeemed ==. val True )
+        from $ \ (invite `InnerJoin` user) -> do
+        on_ $ invite ^. InviteUser ==. user ^. UserId
+        where_ $ invite ^. InviteRedeemed ==. val True
         orderBy [ desc (invite ^. InviteCreatedTs) ]
-        return invite
+        return (invite, user ^. UserNick)
 
-    let redeemed_users = S.fromList $ mapMaybe (inviteRedeemedBy . entityVal) redeemed_invites
-        redeemed_inviters = S.fromList $ map (inviteUser . entityVal) redeemed_invites
-        outstanding_inviters = S.fromList $ map (inviteUser . entityVal) outstanding_invites
+    let redeemed_users = S.fromList $ mapMaybe (inviteRedeemedBy . entityVal . fst) redeemed_invites
+        redeemed_inviters = S.fromList $ map (inviteUser . entityVal . fst) redeemed_invites
+        outstanding_inviters = S.fromList $ map (inviteUser . entityVal . fst) outstanding_invites
         user_ids = S.toList $ redeemed_users `S.union` redeemed_inviters `S.union` outstanding_inviters
 
     user_entities <- runDB $ selectList [ UserId <-. user_ids ] []
@@ -458,7 +460,7 @@ getInviteR project_handle = do
         format_user (Just user_id) =
             let Entity _ user = fromMaybe (error "getInviteR: user_id not found in users map")
                                           (M.lookup user_id users)
-             in fromMaybe (userIdent user) $ userName user
+             in fromMaybe (userNick user) $ userName user
 
         format_inviter user_id =
             userDisplayName $ fromMaybe (error "getInviteR(#2): user_id not found in users map")

@@ -123,7 +123,7 @@ renderCommentPendingEvent comment_id comment user_map = do
     [whamlet|
         <div .event>
             ^{renderTime $ commentCreatedTs comment}
-            <a href=@{UserR (commentUser comment)}> #{userDisplayName (Entity (commentUser comment) poster)}
+            <a href=@{UserR $ userNick poster}> #{userDisplayName (Entity (commentUser comment) poster)}
             posted a
             <a href=@{CommentDirectLinkR comment_id}> comment
             awaiting moderator approval: #{commentText comment}
@@ -142,7 +142,7 @@ renderCommentRethreadedEvent Rethread{..} user_map = do
     [whamlet|
         <div .event>
             ^{renderTime rethreadTs}
-            <a href=@{UserR rethreadModerator}> #{userDisplayName (Entity rethreadModerator user)}
+            <a href=@{UserR $ userNick user}> #{userDisplayName (Entity rethreadModerator user)}
             rethreaded a comment from
             <del>@{old_route}
             to
@@ -163,7 +163,7 @@ renderCommentClosedEvent CommentClosing{..} user_map ticket_map = do
             [whamlet|
                 <div .event>
                     ^{renderTime commentClosingTs}
-                    <a href=@{UserR commentClosingClosedBy}> #{userDisplayName (Entity commentClosingClosedBy user)}
+                    <a href=@{UserR $ userNick user}> #{userDisplayName (Entity commentClosingClosedBy user)}
                     closed ticket
                     <a href=@{CommentDirectLinkR commentClosingComment}>
                         <div .ticket-title>SD-#{ticket_str}: #{ticketName}
@@ -173,7 +173,7 @@ renderCommentClosedEvent CommentClosing{..} user_map ticket_map = do
             [whamlet|
                 <div .event>
                     ^{renderTime commentClosingTs}
-                    <a href=@{UserR commentClosingClosedBy}> #{userDisplayName (Entity commentClosingClosedBy user)}
+                    <a href=@{UserR $ userNick user}> #{userDisplayName (Entity commentClosingClosedBy user)}
                     closed
                     <a href=@{CommentDirectLinkR commentClosingComment}>
                         comment thread
@@ -191,7 +191,7 @@ renderTicketClaimedEvent (Left (_, TicketClaiming{..})) user_map ticket_map = do
     [whamlet|
         <div .event>
             ^{renderTime ticketClaimingTs}
-            <a href=@{UserR ticketClaimingUser}> #{userDisplayName (Entity ticketClaimingUser user)}
+            <a href=@{UserR $ userNick user}> #{userDisplayName (Entity ticketClaimingUser user)}
             claimed ticket
             <a href=@{CommentDirectLinkR ticketClaimingTicket}>
                 <div .ticket-title>SD-#{ticket_str}: #{ticketName}
@@ -208,7 +208,7 @@ renderTicketClaimedEvent (Right (_, TicketOldClaiming{..})) user_map ticket_map 
     [whamlet|
         <div .event>
             ^{renderTime ticketOldClaimingClaimTs}
-            <a href=@{UserR ticketOldClaimingUser}> #{userDisplayName (Entity ticketOldClaimingUser user)}
+            <a href=@{UserR $ userNick user}> #{userDisplayName (Entity ticketOldClaimingUser user)}
             claimed ticket
             <a href=@{CommentDirectLinkR ticketOldClaimingTicket}>
                 <div .ticket-title>SD-#{ticket_str}: #{ticketName}
@@ -251,7 +251,7 @@ renderWikiPageEvent project_handle wiki_page_id wiki_page _ = do
         <div .event>
             ^{renderTime $ wikiPageCreatedTs wiki_page}
             <!--
-                <a href=@{UserR (wikiPageUser wiki_page)}>
+                <a href=@{UserR $ userNick editor}>
                     #{userDisplayName (Entity (wikiPageUser wiki_page) editor)}
                 -->
             made a new wiki page: #
@@ -265,7 +265,7 @@ renderWikiEditEvent project_handle edit_id wiki_edit wiki_target_map user_map = 
     [whamlet|
         <div .event>
             ^{renderTime $ wikiEditTs wiki_edit}
-            <a href=@{UserR (wikiEditUser wiki_edit)}>
+            <a href=@{UserR $ userNick editor}>
                 #{userDisplayName (Entity (wikiEditUser wiki_edit) editor)}
             edited the
             <a href=@{WikiR project_handle (wikiTargetLanguage wiki_target) (wikiTargetTarget wiki_target)}> #{wikiTargetTarget wiki_target}
@@ -300,7 +300,7 @@ renderNewPledgeEvent _ SharesPledged{..} user_map = do
     [whamlet|
         <div .event>
             ^{renderTime sharesPledgedTs}
-            <a href=@{UserR sharesPledgedUser}> #{userDisplayName (Entity sharesPledgedUser pledger)}
+            <a href=@{UserR $ userNick pledger}> #{userDisplayName (Entity sharesPledgedUser pledger)}
             made a new pledge of #{show mills} per patron!
     |]
 
@@ -315,7 +315,7 @@ renderUpdatedPledgeEvent old_shares _ SharesPledged{..} user_map = do
     [whamlet|
         <div .event>
             ^{renderTime sharesPledgedTs}
-            <a href=@{UserR sharesPledgedUser}> #{userDisplayName (Entity sharesPledgedUser pledger)}
+            <a href=@{UserR $ userNick pledger}> #{userDisplayName (Entity sharesPledgedUser pledger)}
             #{verb} their pledge from #{show old_mills} to #{show new_mills} per patron#{punc}
     |]
 
@@ -326,6 +326,6 @@ renderDeletedPledgeEvent ts user_id shares user_map = do
     [whamlet|
         <div .event>
             ^{renderTime ts}
-            <a href=@{UserR user_id}>#{userDisplayName (Entity user_id pledger)}
+            <a href=@{UserR $ userNick pledger}>#{userDisplayName (Entity user_id pledger)}
             withdrew their #{show mills} per patron pledge.
     |]

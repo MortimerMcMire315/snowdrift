@@ -10,7 +10,7 @@ $else
     $forall (user, votes) <- user_votes
       <tr>
         <td>
-          <a href=@{UserR (entityKey user)}>
+          <a href=@{UserR $ userNick $ entityVal user}>
             #{userDisplayName user}
 
         <td>

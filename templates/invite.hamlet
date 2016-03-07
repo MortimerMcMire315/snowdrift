@@ -65,12 +65,12 @@ $else
       <th>Info
       <th>Role
       <th>Code
-    $forall Entity _ invite <- outstanding_invites
+    $forall (Entity _ invite, Value nick) <- outstanding_invites
       <tr>
         <td>^{renderTime (inviteCreatedTs invite)}
         $with user_id <- inviteUser invite
           <td>
-            <a href=@{UserR user_id}>
+            <a href=@{UserR nick}>
               #{format_inviter user_id}
         <td>#{inviteTag invite}
         <td>#{roleAbbrev (inviteRole invite)}
@@ -89,13 +89,13 @@ $else
       <th>Info
       <th>Role
       <th>Code
-    $forall Entity _ invite <- redeemed_invites
+    $forall (Entity _ invite, Value nick) <- redeemed_invites
       <tr>
         <td>^{renderTime (fromMaybe now (inviteRedeemedTs invite))}
         <td>#{format_user (inviteRedeemedBy invite)}
         $with user_id <- inviteUser invite
           <td>
-            <a href=@{UserR user_id}>
+            <a href=@{UserR nick}>
               #{format_inviter user_id}
 
         <td>#{inviteTag invite}

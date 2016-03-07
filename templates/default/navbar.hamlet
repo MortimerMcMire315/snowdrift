@@ -20,22 +20,23 @@
           <button type=submit>go
   <ul .right .break4>
     <li>
-      $maybe Entity uid user <- maybeUser
-        $with name <- fromMaybe (userIdent user) $ userName user
-          <div .ddown>
-            <a href .ddown-toggle .user>#{name}
-            <ul>
-              <li>
-                <a href=@{HomeR} :active HomeR:.active>Dashboard
-              <li>
-                <a href=@{UserR uid} :active (UserR uid):.active>Profile
-              <li>
-                <a href=@{UTransactionsR} :active UTransactionsR:.active>
-                  Transactions
-              <li>
-                <a href=@{UNotificationsR} :active UNotificationsR:.active>
-                  Notifications
-              <li>
-                <a href=@{AuthR LogoutR}>Log Out
+      $maybe Entity _uid user <- maybeUser
+        $with name <- fromMaybe (userNick user) $ userName user
+          $with nick <- userNick user
+            <div .ddown>
+              <a href .ddown-toggle .user>#{name}
+              <ul>
+                <li>
+                  <a href=@{HomeR} :active HomeR:.active>Dashboard
+                <li>
+                  <a href=@{UserR nick} :active (UserR nick):.active>Profile
+                <li>
+                  <a href=@{UTransactionsR} :active UTransactionsR:.active>
+                    Transactions
+                <li>
+                  <a href=@{UNotificationsR} :active UNotificationsR:.active>
+                    Notifications
+                <li>
+                  <a href=@{AuthR LogoutR}>Log Out
       $nothing
         <a href=@{AuthR LoginR} :authActive:.active>Log In

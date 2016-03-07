@@ -14,9 +14,11 @@ module View.User
 
 import Import hiding (UserNotificationPref, ProjectNotificationPref)
 
+import Data.Char (isDigit)
 import Data.String (fromString)
 import qualified Data.Map as M
 import qualified Data.Set as S
+import qualified Data.Text as T
 
 import Avatar
 import DeprecatedBootstrap
@@ -28,8 +30,27 @@ import Model.User.Internal
 import Widgets.Markdown (snowdriftMarkdownField)
 import Widgets.UserPledges
 
+nickField :: Field Handler Text
+nickField =
+    -- A safe and initial reasonable nickname pattern. It's much easier to make
+    -- it restrictive now and relax later, than to make it too relaxed and have
+    -- conflicts and ugly URLs and other issues later.
+    let isAsciiLetter c = 'a' <= c && c <= 'z' || 'A' <= c && c <= 'Z'
+        first = isAsciiLetter
+        rest c = isAsciiLetter c || isDigit c || c `elem` ("-._" :: String)
+        validnick t =
+            case T.uncons t of
+                Just (c, r) -> first c && T.all rest r
+                Nothing     -> False
+        msg :: Text
+        msg = "The first character must be a letter, and every other character\
+            \ must be a letter, a digit, ‘.’ (period) , ‘-’ (dash) or ‘_’\
+            \ (underscore)."
+    in  checkBool validnick msg textField
+
 createUserForm :: Maybe Text
                -> Form (Text
+                       ,Text
                        ,Text
                        ,Maybe Text
                        ,Maybe Text
@@ -37,14 +58,16 @@ createUserForm :: Maybe Text
                        ,Maybe Text
                        )
 createUserForm ident extra = do
+
     (identRes,   identView)   <- mreq textField     "" ident
     -- we use "passphrase" usually, but passwordField is Yesod term
     (passph1Res, passph1View) <- mreq passwordField "" Nothing
     (passph2Res, passph2View) <- mreq passwordField "" Nothing
+    (nickRes,    nickView)    <- mreq nickField     "" Nothing
     (nameRes,    nameView)    <- mopt textField     "" Nothing
     (emailRes,   emailView)   <- mopt emailField    "" Nothing
     (avatarRes,  avatarView)  <- mopt textField     "" Nothing
-    (nickRes,    nickView)    <- mopt textField     "" Nothing
+    (ircNickRes, ircNickView) <- mopt textField     "" Nothing
 
     let view = $(widgetFile "auth/create-user-form")
         passphRes = case (passph1Res, passph2Res) of
@@ -54,15 +77,16 @@ createUserForm ident extra = do
             (FormSuccess _, x) -> x
             (x, _) -> x
 
-        result = (,,,,,) <$> identRes <*> passphRes <*> nameRes
-                         <*> emailRes <*> avatarRes <*> nickRes
+        result = (,,,,,,) <$> identRes <*> passphRes <*> nickRes <*> nameRes
+                          <*> emailRes <*> avatarRes <*> ircNickRes
 
     return (result, view)
 
 editUserForm :: Maybe User -> Form UserUpdate
 editUserForm muser = renderBootstrap3 BootstrapBasicForm $
     UserUpdate
-        <$> aopt' textField "Public Name" (userName <$> muser)
+        <$> areq' nickField "Public unique nickname" (userNick <$> muser)
+        <*> aopt' textField "Public Name" (userName <$> muser)
         <*> aopt' textField "Avatar image (link)" (userAvatar <$> muser)
         <*> aopt' emailField "Email (not shown publicly)" (userEmail <$> muser)
         <*> aopt' textField "IRC nick @freenode.net" (userIrcNick <$> muser)
@@ -103,7 +127,8 @@ establishUserForm =
 previewUserForm :: User -> Form UserUpdate
 previewUserForm User{..} = renderBootstrap3 BootstrapBasicForm $
     UserUpdate
-        <$> aopt hiddenField "" (Just userName)
+        <$> areq hiddenField "" (Just userNick)
+        <*> aopt hiddenField "" (Just userName)
         <*> aopt hiddenField "" (Just userAvatar)
         <*> aopt hiddenField "" (Just userEmail)
         <*> aopt hiddenField "" (Just userIrcNick)
@@ -148,7 +173,7 @@ userNameWidget user_id = do
         Nothing -> [whamlet|deleted user|]
         Just user ->
             [whamlet|
-                <a href=@{UserR user_id}>
+                <a href=@{UserR $ userNick user}>
                     #{userDisplayName (Entity user_id user)}
             |]
 

@@ -174,8 +174,8 @@ curUserIsEligibleEstablish =
 -- | Get a User's public display name (defaults to userN if no name has
 -- been set).
 userDisplayName :: Entity User -> Text
-userDisplayName (Entity user_id user) =
-    fromMaybe ("user" <> toPathPiece user_id) (userName user)
+userDisplayName (Entity _user_id user) =
+    fromMaybe (userNick user) (userName user)
 
 -- | Apply a UserUpdate in memory, for preview. For this reason,
 -- userUpdateNotificationPreferences doesn't need to be touched.
@@ -229,7 +229,8 @@ fetchUserWatchingProjectsDB user_id =
 
 updateUserDB :: UserId -> UserUpdate -> DB ()
 updateUserDB user_id UserUpdate{..} = update $ \u -> do
-     set u [ UserName               =. val userUpdateName
+     set u [ UserNick               =. val userUpdateNick
+           , UserName               =. val userUpdateName
            , UserAvatar             =. val userUpdateAvatar
            , UserEmail              =. val userUpdateEmail
            , UserIrcNick            =. val userUpdateIrcNick

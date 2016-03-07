@@ -32,6 +32,7 @@ getDeleteUserR user_id = do
 
 postDeleteUserR :: UserId -> Handler Html
 postDeleteUserR user_id = do
+    user <- runDB $ get404 user_id
     void $ checkEditUser user_id
     startDeleteConfirmation user_id
-    redirect $ UserR user_id
+    redirect $ UserR $ userNick user

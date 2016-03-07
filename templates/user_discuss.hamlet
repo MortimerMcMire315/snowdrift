@@ -5,7 +5,7 @@ $nothing
 
 <div .page-toolbox>
   <div .page-tool>
-    <a href=@{UserR user_id}>back to user profile
+    <a href=@{UserR $ userNick user}>back to user profile
   $maybe _ <- closedView
     <div .page-tool>
       <a href=@{UserDiscussionR user_id}>

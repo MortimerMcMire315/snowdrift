@@ -132,6 +132,7 @@ makeUserCommentActionWidget make_comment_action_widget user_id comment_id mods m
 
 userDiscussionPage :: UserId -> Widget -> Widget
 userDiscussionPage user_id widget = do
+    user <- handlerToWidget $ runDB $ get404 user_id
     $(widgetFile "user_discussion_wrapper")
     toWidget $(cassiusFile "templates/comment.cassius")
 

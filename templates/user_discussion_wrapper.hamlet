@@ -2,6 +2,6 @@
   <div .page-tool>
     <a href=@{UserDiscussionR user_id}> back to full discussion
   <div .page-tool>
-    <a href=@{UserR user_id}> back to user page
+    <a href=@{UserR $ userNick user}> back to user page
 
 ^{widget}

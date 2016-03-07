@@ -74,7 +74,8 @@
 -- ## Browsing a particular user (may need fleshing out?)
 --
 
-/u/#UserHandle UserR GET POST
+/u/!#UserId    UserByIdR GET POST
+/u/#UserHandle UserR     GET
 
 -- Yesod jibber jabber
 /static StaticR Static appStatic

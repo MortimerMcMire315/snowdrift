@@ -17,9 +17,9 @@
               $else
                 <span .glyphicon .glyphicon-envelope>
 
-          $with name <- fromMaybe (userIdent user) $ userName user
+          $with name <- fromMaybe (userNick user) $ userName user
             <li>
-              <a href=@{UserR user_id}>#{name}
+              <a href=@{UserR $ userNick user}>#{name}
           <li>
             <a href=@{AuthR LogoutR}>Log Out
         $nothing
@@ -42,9 +42,9 @@
                   #{num_unread_notifs}
               $else
                 <span .glyphicon .glyphicon-envelope>
-          $with name <- fromMaybe (userIdent user) $ userName user
+          $with name <- fromMaybe (userNick user) $ userName user
             <li>
-              <a href=@{UserR user_id}>#{name}
+              <a href=@{UserR $ userNick user}>#{name}
           <li>
             <a href=@{AuthR LogoutR}>Log Out
         $nothing

@@ -12,6 +12,7 @@ import Control.Monad.Writer.Strict (WriterT, runWriterT)
 import Data.Char (isSpace)
 import Data.Text as T
 import Network.HTTP.Conduit (Manager)
+import System.Random (randomRIO)
 import Text.Blaze.Html.Renderer.Text (renderHtml)
 import Text.Hamlet (hamletFile)
 import Text.Jasmine (minifym)
@@ -62,9 +63,11 @@ plural _ _ y = y
 -- Set up i18n messages. See the message folder.
 mkMessage "App" "messages" "en"
 
--- FIXME
+-- Type of project identifier path piece in URLs
 type ProjectHandle = Text
-type UserHandle = UserId
+
+-- Type of user identifier path piece in URLs
+type UserHandle = Text
 
 -- This is where we define all of the routes in our application. For a full
 -- explanation of the syntax, please see:
@@ -243,8 +246,13 @@ instance YesodAuth App where
             ("hashdb",    _) -> return $ UserError $ IdentifierNotFound ident
             ("browserid", _) -> do
                 let emailStuff = Just $ NewEmail True ident
+                -- Generate nickname automatically. This is ugly, but we're
+                -- deprecating Persona anyway.
+                num <- liftIO $ randomRIO (0, 99999 :: Int)
+                let nick = "user-" <> pack (show num)
                 muid <-
-                    createUser ident Nothing Nothing emailStuff Nothing Nothing
+                    createUser
+                        ident Nothing nick Nothing emailStuff Nothing Nothing
                 return $ case muid of
                     -- The Nothing case never really runs because 'createUser'
                     -- throws an exception on failure
@@ -268,9 +276,10 @@ data NewEmail = NewEmail
     , neAddr :: Text
     }
 
-createUser :: Text -> Maybe Text -> Maybe Text -> Maybe NewEmail -> Maybe Text
-           -> Maybe Text -> Handler (Maybe UserId)
-createUser ident passph name newEmail avatar nick = do
+createUser
+    :: Text -> Maybe Text -> Text -> Maybe Text -> Maybe NewEmail -> Maybe Text
+    -> Maybe Text -> Handler (Maybe UserId)
+createUser ident passph nickname name newEmail avatar ircNick = do
     langs <- mapMaybe (readMaybe . T.unpack) <$> languages
     now <- liftIO getCurrentTime
     handle (\DBException -> return Nothing) $ runYDB $ do
@@ -309,6 +318,7 @@ createUser ident passph name newEmail avatar nick = do
   where
     newUser langs now account_id discussion_id =
         User { userIdent = ident
+             , userNick = nickname
              , userEmail = (neAddr <$> newEmail)
              , userEmail_verified = (maybe False neVerified newEmail)
              , userCreatedTs = now
@@ -319,7 +329,7 @@ createUser ident passph name newEmail avatar nick = do
              , userAvatar = avatar
              , userBlurb = Nothing
              , userStatement = Nothing
-             , userIrcNick = nick
+             , userIrcNick = ircNick
              , userLanguages = langs
              , userReadNotifications = now
              , userReadApplications = now

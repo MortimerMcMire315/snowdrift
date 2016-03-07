@@ -41,8 +41,8 @@ postEditUserR user_id = do
                         mcurrent_email <- runDB $ fetchUserEmail user_id
                         when (mcurrent_email /= Just user_email) $
                             startEmailVerification user_id user_email
-                    runDB (updateUserDB user_id user_update)
-                    redirect (UserR user_id)
+                    runDB $ updateUserDB user_id user_update
+                    redirect $ UserR $ userUpdateNick user_update
 
                 _ -> do
                     user <- runYDB $ get404 user_id
@@ -56,5 +56,6 @@ postEditUserR user_id = do
                         previewWidget form "update" $
                             renderUser (Just viewer_id) user_id updated_user mempty
         _ -> do
+            user <- runYDB $ get404 user_id
             alertDanger "Failed to update user."
-            redirect (UserR user_id)
+            redirect $ UserR $ userNick user

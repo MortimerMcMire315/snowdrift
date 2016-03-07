@@ -42,7 +42,8 @@ postUserNotificationsR user_id = do
             forM_ (userNotificationPref notif_pref) $ \(ntype, ndeliv) ->
                 runDB $ updateUserNotificationPrefDB user_id ntype ndeliv
             alertSuccess "Successfully updated the notification preferences."
-            redirect $ UserR user_id
+            user <- runDB $ get404 user_id
+            redirect $ UserR $ userNick user
         _ -> do
             alertDanger $ "Failed to update the notification preferences. "
                        <> "Please try again."

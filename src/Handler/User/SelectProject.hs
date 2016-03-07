@@ -26,8 +26,9 @@ getUserSelectProjectR user_id = do
 
 postUserSelectProjectR :: UserId -> Handler Html
 postUserSelectProjectR user_id = do
+    user <- runDB $ get404 user_id
     void $ checkEditUser user_id
     mproject_id <- lookupPostParam "project_id"
-    maybe (redirect $ UserR user_id)
+    maybe (redirect $ UserR $ userNick user)
           (redirect . ProjectNotificationsR user_id . key . PersistInt64)
           (join $ Traversable.forM mproject_id $ readMaybe . T.unpack)

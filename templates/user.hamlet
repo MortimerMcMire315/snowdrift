@@ -37,7 +37,7 @@ $if Just user_id == mviewer_id
           $maybe email <- userEmail user
             #{email} (not shown publicly)
             $if isJust (userEmail user) && not (userEmail_verified user)
-              <form method=POST action=@{UserR user_id}>
+              <form method=POST action=@{UserR $ userNick user}>
                 <button>resend verification email
           <br>
         $maybe nick <- userIrcNick user

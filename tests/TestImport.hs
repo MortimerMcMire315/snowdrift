@@ -301,7 +301,7 @@ editWiki project language page content comment = do
 
 establish :: UserId -> YesodExample App ()
 establish user_id = do
-    get200 $ UserR user_id
+    get200 $ UserByIdR user_id
 
     withStatus 303 False $ request $ do
         addToken

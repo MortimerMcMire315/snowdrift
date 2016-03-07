@@ -33,7 +33,7 @@ $else
                 $maybe other_account_id <- getOtherAccount transaction
                   $case M.lookup other_account_id account_map
                     $of Just (Right user)
-                      <a href=@{UserR $ entityKey user}>
+                      <a href=@{UserR $ userNick $ entityVal user}>
                         #{userDisplayName user}
 
                     $of Just (Left project)

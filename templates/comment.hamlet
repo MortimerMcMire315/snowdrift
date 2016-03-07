@@ -5,14 +5,14 @@
         <span .p-name>
           #{userDisplayName (Entity user_id user)}
       $else
-        <a .u-url .p-name href=@{UserR user_id}>
+        <a .u-url .p-name href=@{UserR $ userNick user}>
           $maybe author_avatar <- userAvatar user
             <img .u-photo .small_avatar src=#{author_avatar}> #
           #{userDisplayName (Entity user_id user)}
           
     $if can_establish
       <div .comment-head-item>
-        <a href=@{UserR user_id}>
+        <a href=@{UserR $ userNick user}>
           (establish user)
 
     $with ts <- fromMaybe (commentCreatedTs comment) (commentApprovedTs comment)
@@ -65,7 +65,8 @@
               claimed
               ^{renderTime (ticketClaimingTs claim)}
               by
-              <a href=@{UserR claiming_user_id}>#{userDisplayName $ Entity claiming_user_id claiming_user}#
+              <a href=@{UserR $ userNick claiming_user}>
+                #{userDisplayName $ Entity claiming_user_id claiming_user}#
               $maybe note <- ticketClaimingNote claim
                 : #{note}
 

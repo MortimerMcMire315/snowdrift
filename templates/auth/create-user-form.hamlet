@@ -9,7 +9,7 @@
   <tr>
     <td>
       <label for=#{fvId identView}>
-        Account name (private, used for logging in):
+        Account name (private, used only for logging in):
     <td>
       ^{fvInput identView}
   <tr>
@@ -24,6 +24,12 @@
         Repeat passphrase:
     <td>
       ^{fvInput passph2View}
+  <tr>
+    <td>
+      <label for=#{fvId nickView}>
+        Unique nickname (public, required):
+    <td>
+      ^{fvInput nickView}
   <tr>
     <td>
       <label for=#{fvId nameView}>
@@ -44,7 +50,7 @@
       ^{fvInput avatarView}
   <tr>
     <td>
-      <label for=#{fvId nickView}>
+      <label for=#{fvId ircNickView}>
         IRC Nick (irc.freenode.net, optional):
     <td>
-      ^{fvInput nickView}
+      ^{fvInput ircNickView}

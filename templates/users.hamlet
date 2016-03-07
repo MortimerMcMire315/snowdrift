@@ -24,7 +24,7 @@
       $forall (_, user) <- users
         <tr>
           <td>
-            <a href=@{UserR $ entityKey user}>
+            <a href=@{UserR $ userNick $ entityVal user}>
               #{userDisplayName user}
           <td>
             $maybe nick <- userIrcNick $ entityVal user

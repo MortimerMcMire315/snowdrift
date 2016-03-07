@@ -8,15 +8,15 @@ import qualified Database.Persist as P
 import Model.Notification
 import WrappedValues
 
-data UserUpdate =
-    UserUpdate
-        { userUpdateName               :: Maybe Text
-        , userUpdateAvatar             :: Maybe Text
-        , userUpdateEmail              :: Maybe Text
-        , userUpdateIrcNick            :: Maybe Text
-        , userUpdateBlurb              :: Maybe Markdown
-        , userUpdateStatement          :: Maybe Markdown
-        }
+data UserUpdate = UserUpdate
+    { userUpdateNick      :: Text
+    , userUpdateName      :: Maybe Text
+    , userUpdateAvatar    :: Maybe Text
+    , userUpdateEmail     :: Maybe Text
+    , userUpdateIrcNick   :: Maybe Text
+    , userUpdateBlurb     :: Maybe Markdown
+    , userUpdateStatement :: Maybe Markdown
+    }
 
 data ChangePassphrase = ChangePassphrase
     { currentPassphrase :: Text

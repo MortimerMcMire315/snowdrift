@@ -16,6 +16,12 @@ Transaction
 
 User
     ident             Text
+    -- ^ Private login name, never shown in UI, may be an email address in the
+    --   case of Persona logins.
+    nick              Text                  default=concat('user-',floor(random()*100000))
+    -- ^ Public user unique nickname, shown in the UI.
+    --   TODO the default value is meant just for initial migration, remove it
+    --        once all users get assigned auto-generated nicks
     email             Text         Maybe
     email_verified    Bool                  default=false
     createdTs         UTCTime
@@ -35,6 +41,7 @@ User
     discussion        DiscussionId       default=nextval('discussion_id_seq'::regclass)
 
     UniqueUser ident
+    UniqueUserNick nick
     UniqueUserAccount account
     UniqueUserDiscussion discussion
 

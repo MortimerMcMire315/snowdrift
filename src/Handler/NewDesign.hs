@@ -181,14 +181,15 @@ postCreateAccountR = do
     ((result, form), _) <- runFormPost $ createUserForm Nothing
 
     case result of
-        FormSuccess (ident, passph, name, memail, avatar, nick) -> do
+        FormSuccess (ident, passph, nickname, name, memail, avatar, ircnick) -> do
             muser_id <-
                 createUser ident
                            (Just passph)
+                           nickname
                            name
                            (NewEmail False <$> memail)
                            avatar
-                           nick
+                           ircnick
             fromMaybe (pure())
                       (startEmailVerification <$> muser_id <*> memail)
             case muser_id of
@@ -210,11 +211,11 @@ postCreateAccountR = do
     |]
 
 -- | Public profile for a user.
-getUserR :: UserId -> Handler Html
-getUserR user_id = do
+getUserR :: UserHandle -> Handler Html
+getUserR nickname = do
     mviewer_id <- maybeAuthId
 
-    user <- runYDB $ get404 user_id
+    Entity user_id user <- runYDB $ getBy404 $ UniqueUserNick nickname
 
     projects_and_roles <- runDB (fetchUserProjectsAndRolesDB user_id)
     when ( Just user_id == mviewer_id
@@ -229,6 +230,14 @@ getUserR user_id = do
             userDisplayName (Entity user_id user)
         alphaRewriteNotice
         renderUser mviewer_id user_id user projects_and_roles
+
+-- | Pick user by numeric ID, and simply redirect to 'UserR'.
+--
+-- TODO remove this at some point?
+getUserByIdR :: UserId -> Handler Html
+getUserByIdR user_id = do
+    user <- runYDB $ get404 user_id
+    redirect $ UserR $ userNick user
 
 getUNotificationsR :: Handler Html
 getUNotificationsR = do

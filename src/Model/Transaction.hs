@@ -36,7 +36,7 @@ renderOtherAccount is_credit transaction user_accounts project_accounts = do
 
         (Nothing, Just (Entity user_id user)) ->
             [hamlet|
-                <a href=@{UserR user_id}>
+                <a href=@{UserR $ userNick user}>
                     #{userDisplayName (Entity user_id user)}
             |]
 

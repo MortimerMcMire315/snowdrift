@@ -1,11 +1,11 @@
 <h1>
   <div .text-center> #{projectName project} Team
 
-$forall Entity user_id user <- members
+$forall Entity _uid user <- members
   <hr>
   <div .row>
     <div .bio_name .col-sm-3>
-      <a href=@{UserR user_id}>
+      <a href=@{UserR $ userNick user}>
         #{userShortName user}
         <br>
         $maybe avatar <- userAvatar user

@@ -24,16 +24,16 @@
     <a href="https://www.alephobjects.com/">
       Aleph Objects, Inc.
   <li>
-    <a href=@{UserR (toSqlKey 335)}>
+    <a href=@{UserByIdR (toSqlKey 335)}>
       Denver Bohling
   <li>
-    <a href=@{UserR (toSqlKey 213)}>
+    <a href=@{UserByIdR (toSqlKey 213)}>
       Philip Horger
   <li>
-    <a href=@{UserR (toSqlKey 380)}>
+    <a href=@{UserByIdR (toSqlKey 380)}>
       jamessan
   <li>
-    <a href=@{UserR (toSqlKey 551)}>
+    <a href=@{UserByIdR (toSqlKey 551)}>
       Tanu Kaskinen
   <li>
     <a href="http://linuxfund.org/">
@@ -41,12 +41,12 @@
   <li>
     Pat McGee
   <li>
-    <a href=@{UserR (toSqlKey 529)}>
+    <a href=@{UserByIdR (toSqlKey 529)}>
       Tomasz Muras
   <li>
     Paul Phillips
   <li>
-    <a href=@{UserR (toSqlKey 31)}>
+    <a href=@{UserByIdR (toSqlKey 31)}>
       Kate & Ira Pohl
 
 <h2 .text-center>General pre-launch donors
@@ -60,29 +60,29 @@
   <li>
     Chris Aniszczyk
   <li>
-    <a href=@{UserR (toSqlKey 503)}>
+    <a href=@{UserByIdR (toSqlKey 503)}>
       Jorge Aranda
   <li>
-    <a href=@{UserR (toSqlKey 527)}>
+    <a href=@{UserByIdR (toSqlKey 527)}>
       Pierre Arlais, Bearstech
   <li>
-    <a href=@{UserR (toSqlKey 869)}>
+    <a href=@{UserByIdR (toSqlKey 869)}>
       Christopher Armstrong
   <li>
-    <a href=@{UserR (toSqlKey 876)}>
+    <a href=@{UserByIdR (toSqlKey 876)}>
       Xavier Antoviaque, OpenCraft
   <li>
-    <a href=@{UserR (toSqlKey 868)}>
+    <a href=@{UserByIdR (toSqlKey 868)}>
       Artyom
   <li>
-    <a href=@{UserR (toSqlKey 17)}>
+    <a href=@{UserByIdR (toSqlKey 17)}>
       Greg Austic
   <li>
     Autious
   <li>
     Kenneth Ballenegger
   <li>
-    <a href=@{UserR (toSqlKey 866)}>
+    <a href=@{UserByIdR (toSqlKey 866)}>
       Moritz Bartl
   <li>
     Brennen Bearnes
@@ -93,18 +93,18 @@
   <li>
     Nick Barry
   <li>
-    <a href=@{UserR (toSqlKey 520)}>
+    <a href=@{UserByIdR (toSqlKey 520)}>
       Ingo Blechschmidt
   <li>
-    <a href=@{UserR (toSqlKey 560)}>
+    <a href=@{UserByIdR (toSqlKey 560)}>
       Eduard Bopp
   <li>
-    <a href=@{UserR (toSqlKey 464)}>
+    <a href=@{UserByIdR (toSqlKey 464)}>
       Nathan Bouscal
   <li>
     Jeremy Bowers
   <li>
-    <a href=@{UserR (toSqlKey 304)}>
+    <a href=@{UserByIdR (toSqlKey 304)}>
       Bret Comnes
   <li>
     Tim Bunce
@@ -113,21 +113,21 @@
   <li>
     Lee Butts
   <li>
-    <a href=@{UserR (toSqlKey 883)}>
+    <a href=@{UserByIdR (toSqlKey 883)}>
       Javier Merino Cacho
   <li>
-    <a href=@{UserR (toSqlKey 762)}>
+    <a href=@{UserByIdR (toSqlKey 762)}>
       Scott Calvert & family
   <li>
     Mike Chaberski
   <li>
-    <a href=@{UserR (toSqlKey 863)}>
+    <a href=@{UserByIdR (toSqlKey 863)}>
       Jacob Chapman
   <li>
-    <a href=@{UserR (toSqlKey 337)}>
+    <a href=@{UserByIdR (toSqlKey 337)}>
       Chato
   <li>
-    <a href=@{UserR (toSqlKey 284)}>
+    <a href=@{UserByIdR (toSqlKey 284)}>
       Paul Chiusano
   <li>
     Jesper Cockx
@@ -138,41 +138,41 @@
   <li>
     Noah Cornwell
   <li>
-    <a href=@{UserR (toSqlKey 906)}>
+    <a href=@{UserByIdR (toSqlKey 906)}>
       Christopher Cummins
   <li>
     Daniel
   <li>
     Debian KDE
   <li>
-    <a href=@{UserR (toSqlKey 393)}>
+    <a href=@{UserByIdR (toSqlKey 393)}>
       Jeroen Dekkers
   <li>
     Holger Dell
   <li>
-    <a href=@{UserR (toSqlKey 362)}>
+    <a href=@{UserByIdR (toSqlKey 362)}>
       Sebastian Dröge
   <li>
     <a href="http://andrewdurham.com/">
       Andrew Durham
   <li>
-    <a href=@{UserR (toSqlKey 397)}>
+    <a href=@{UserByIdR (toSqlKey 397)}>
       Christoph Egger
   <li>
     Carol Ann Emerick
   <li>
-    <a href=@{UserR (toSqlKey 374)}>
+    <a href=@{UserByIdR (toSqlKey 374)}>
       Victor Engmark
   <li>
     Eric Entzel
   <li>
-    <a href=@{UserR (toSqlKey 315)}>
+    <a href=@{UserByIdR (toSqlKey 315)}>
       Kent Fenwick
   <li>
-    <a href=@{UserR (toSqlKey 629)}>
+    <a href=@{UserByIdR (toSqlKey 629)}>
       John Feras
   <li>
-    <a href=@{UserR (toSqlKey 279)}>
+    <a href=@{UserByIdR (toSqlKey 279)}>
       Karl Fogel / QuestionCopyright.org
   <li>
     <a href="http://fossetcon.org/">
@@ -191,28 +191,28 @@
   <li>
     FTL Software
   <li>
-    <a href=@{UserR (toSqlKey 218)}>
+    <a href=@{UserByIdR (toSqlKey 218)}>
       Curtis Gagliardi
   <li>
     Luis Gasca
   <li>
     Denver Gingerich
   <li>
-    <a href=@{UserR (toSqlKey 369)}>
+    <a href=@{UserByIdR (toSqlKey 369)}>
       Daniel Glassey
   <li>
     Brook Heisler
   <li>
     Raphaël Hertzog
   <li>
-    <a href=@{UserR (toSqlKey 240)}>
+    <a href=@{UserByIdR (toSqlKey 240)}>
       Joey Hess
   <li>
     Joshua Hoblitt
   <li>
     Claudio Hoffmann
   <li>
-    <a href=@{UserR (toSqlKey 349)}>
+    <a href=@{UserByIdR (toSqlKey 349)}>
       Thomas Hochstein
   <li>
     Martin Höcker
@@ -221,117 +221,117 @@
   <li>
     Lance Holton
   <li>
-    <a href=@{UserR (toSqlKey 630)}>
+    <a href=@{UserByIdR (toSqlKey 630)}>
       hotzeplotz
   <li>
-    <a href=@{UserR (toSqlKey 982)}>
+    <a href=@{UserByIdR (toSqlKey 982)}>
       Antonin Houska
   <li>
-    <a href=@{UserR (toSqlKey 623)}>
+    <a href=@{UserByIdR (toSqlKey 623)}>
       Karl Ove Hufthammer
   <li>
     Eskild Hustvedt
   <li>
-    <a href=@{UserR (toSqlKey 779)}>
+    <a href=@{UserByIdR (toSqlKey 779)}>
       Iko
   <li>
     Arya Irani
   <li>
-    <a href=@{UserR (toSqlKey 371)}>
+    <a href=@{UserByIdR (toSqlKey 371)}>
       Geoffrey Irving
   <li>
-    <a href=@{UserR (toSqlKey 543)}>
+    <a href=@{UserByIdR (toSqlKey 543)}>
       Seth de l'Isle
   <li>
     Ethan Johnson
   <li>
     H. Ryan Jones
   <li>
-    <a href=@{UserR (toSqlKey 419)}>
+    <a href=@{UserByIdR (toSqlKey 419)}>
       Ollie Jones
   <li>
-    <a href=@{UserR (toSqlKey 157)}>
+    <a href=@{UserByIdR (toSqlKey 157)}>
       Michiel de Jong
   <li>
-    <a href=@{UserR (toSqlKey 633)}>
+    <a href=@{UserByIdR (toSqlKey 633)}>
       Hasen el Judy | حسن الجودي | ハセン
   <li>
     Alan Keefer
   <li>
-    <a href=@{UserR (toSqlKey 247)}>
+    <a href=@{UserByIdR (toSqlKey 247)}>
       Ian Kelling
   <li>
     Andrew Klofas
   <li>
-    <a href=@{UserR (toSqlKey 668)}>
+    <a href=@{UserByIdR (toSqlKey 668)}>
       Robert Klotzner
   <li>
     Fabrice Knevez
   <li>
     Georg Kolling
   <li>
-    <a href=@{UserR (toSqlKey 246)}>
+    <a href=@{UserByIdR (toSqlKey 246)}>
       Eric Kow
   <li>
     Alanna Krause
   <li>
-    <a href=@{UserR (toSqlKey 1019)}>
+    <a href=@{UserByIdR (toSqlKey 1019)}>
       Ramana Kumar
   <li>
-    <a href=@{UserR (toSqlKey 651)}>
+    <a href=@{UserByIdR (toSqlKey 651)}>
       Michael F. Lamb
   <li>
-    <a href=@{UserR (toSqlKey 898)}>
+    <a href=@{UserByIdR (toSqlKey 898)}>
       Daniel Landau
   <li>
-    <a href=@{UserR (toSqlKey 875)}>
+    <a href=@{UserByIdR (toSqlKey 875)}>
       Brianna Laugher
   <li>
     Jean-Pierre Laurin
   <li>
     Alexander Lang
   <li>
-    <a href=@{UserR (toSqlKey 524)}>
+    <a href=@{UserByIdR (toSqlKey 524)}>
       Kirsten Larsen
   <li>
     Matt Lee
   <li>
-   <a href=@{UserR (toSqlKey 510)}>
+   <a href=@{UserByIdR (toSqlKey 510)}>
     Nathan Lee
   <li>
-    <a href=@{UserR (toSqlKey 28)}>
+    <a href=@{UserByIdR (toSqlKey 28)}>
       Randall Leeds
   <li>
-    <a href=@{UserR (toSqlKey 183)}>
+    <a href=@{UserByIdR (toSqlKey 183)}>
       Charles Lehner
   <li>
-    <a href=@{UserR (toSqlKey 454)}>
+    <a href=@{UserByIdR (toSqlKey 454)}>
       R. Diaz de Leon
   <li>
     Federico Leva
   <li>
     Aaron Levin
   <li>
-    <a href=@{UserR (toSqlKey 90)}>
+    <a href=@{UserByIdR (toSqlKey 90)}>
       Carl Lewis
   <li>
-    <a href=@{UserR (toSqlKey 167)}>
+    <a href=@{UserByIdR (toSqlKey 167)}>
       John A. Lewis
   <li>
     Katrin Leinweber
   <li>
-    <a href=@{UserR (toSqlKey 428)}>
+    <a href=@{UserByIdR (toSqlKey 428)}>
       Greg Lindahl
   <li>
-    <a href=@{UserR (toSqlKey 566)}>
+    <a href=@{UserByIdR (toSqlKey 566)}>
       Thorbjørn Lindeijer
   <li>
-    <a href=@{UserR (toSqlKey 40)}>
+    <a href=@{UserByIdR (toSqlKey 40)}>
       Mike Linksvayer
   <li>
     Yun-Mei Lo
   <li>
-    <a href=@{UserR (toSqlKey 532)}>
+    <a href=@{UserByIdR (toSqlKey 532)}>
       Brendan Long
   <li>
     Hans Lub
@@ -340,24 +340,24 @@
   <li>
     Magan Adam
   <li>
-    <a href=@{UserR (toSqlKey 852)}>
+    <a href=@{UserByIdR (toSqlKey 852)}>
       Patrick Masson
   <li>
-    <a href=@{UserR (toSqlKey 564)}>
+    <a href=@{UserByIdR (toSqlKey 564)}>
       Martin Mauch
   <li>
-    <a href=@{UserR (toSqlKey 341)}>
+    <a href=@{UserByIdR (toSqlKey 341)}>
       Francois Marier
   <li>
-    <a href=@{UserR (toSqlKey 152)}>
+    <a href=@{UserByIdR (toSqlKey 152)}>
       Sean McGregor
   <li>
-    <a href=@{UserR (toSqlKey 903)}>
+    <a href=@{UserByIdR (toSqlKey 903)}>
       Ewen McNeill
   <li>
     Jan Mechtel
   <li>
-    <a href=@{UserR (toSqlKey 354)}>
+    <a href=@{UserByIdR (toSqlKey 354)}>
       Simon Michael
   <li>
     Florin Mihaila
@@ -368,29 +368,29 @@
   <li>
     Havard Moen
   <li>
-    <a href=@{UserR (toSqlKey 384)}>
+    <a href=@{UserByIdR (toSqlKey 384)}>
       Ramakrishnan Muthukrishnan
   <li>
-    <a href=@{UserR (toSqlKey 556)}>
+    <a href=@{UserByIdR (toSqlKey 556)}>
       Lauro Gripa Neto
   <li>
-    <a href=@{UserR (toSqlKey 340)}>
+    <a href=@{UserByIdR (toSqlKey 340)}>
       Perry Nguyen
   <li>
-    <a href=@{UserR (toSqlKey 828)}>
+    <a href=@{UserByIdR (toSqlKey 828)}>
       Nmlgc
   <li>
     Lachlan O'Dea
   <li>
-    <a href=@{UserR (toSqlKey 636)}>
+    <a href=@{UserByIdR (toSqlKey 636)}>
       Robert Orzanna
   <li>
-    <a href=@{UserR (toSqlKey 467)}>
+    <a href=@{UserByIdR (toSqlKey 467)}>
       Étienne Vallette d'Osia
   <li>
     Tom Paluck
   <li>
-    <a href=@{UserR (toSqlKey 232)}>
+    <a href=@{UserByIdR (toSqlKey 232)}>
       Răzvan Panda
   <li>
     Fabian Peters
@@ -399,47 +399,47 @@
   <li>
     Karl Pietrzak
   <li>
-    <a href=@{UserR (toSqlKey 347)}>
+    <a href=@{UserByIdR (toSqlKey 347)}>
       Steve Phillips / elimisteve
   <li>
-    <a href=@{UserR (toSqlKey 873)}>
+    <a href=@{UserByIdR (toSqlKey 873)}>
       Pini
   <li>
-    <a href=@{UserR (toSqlKey 877)}>
+    <a href=@{UserByIdR (toSqlKey 877)}>
       Josh Poimboeuf
   <li>
-    <a href=@{UserR (toSqlKey 230)}>
+    <a href=@{UserByIdR (toSqlKey 230)}>
       Timotheus Pokorra
   <li>
     Michał Politowski
   <li>
-    <a href=@{UserR (toSqlKey 507)}>
+    <a href=@{UserByIdR (toSqlKey 507)}>
       Shuwen Qian
   <li>
     Aaron Quamme
   <li>
-    <a href=@{UserR (toSqlKey 879)}>
+    <a href=@{UserByIdR (toSqlKey 879)}>
       Lane Rasberry
   <li>
     Olav Reinert
   <li>
     Dan Revel
   <li>
-    <a href=@{UserR (toSqlKey 446)}>
+    <a href=@{UserByIdR (toSqlKey 446)}>
       Kevin Riggle
   <li>
-    <a href=@{UserR (toSqlKey 437)}>
+    <a href=@{UserByIdR (toSqlKey 437)}>
       Matt Ritter
   <li>
     Florence Rosenbloom
   <li>
-    <a href=@{UserR (toSqlKey 106)}>
+    <a href=@{UserByIdR (toSqlKey 106)}>
       Sage Ross
   <li>
     <a href="http://www.roundware.org/">
       Roundware.org
   <li>
-    <a href=@{UserR (toSqlKey 367)}>
+    <a href=@{UserByIdR (toSqlKey 367)}>
       Hugo Roy (FSFE)
   <li>
     Noé Rubinstein
@@ -448,63 +448,63 @@
   <li>
     Marc Saegesser
   <li>
-    <a href=@{UserR (toSqlKey 95)}>
+    <a href=@{UserByIdR (toSqlKey 95)}>
       Chris Sakkas, livinglibre.com
   <li>
     Olli Savolainen
   <li>
     Tobias Schachman
   <li>
-    <a href=@{UserR (toSqlKey 867)}>
+    <a href=@{UserByIdR (toSqlKey 867)}>
       Brian Schroeder
   <li>
-    <a href=@{UserR (toSqlKey 459)}>
+    <a href=@{UserByIdR (toSqlKey 459)}>
       Sean Seefried
   <li>
     Paul Sexton
   <li>
     Kendrick Shaw
   <li>
-    <a href=@{UserR (toSqlKey 501)}>
+    <a href=@{UserByIdR (toSqlKey 501)}>
       Howard Lewis Ship
   <li>
-    <a href=@{UserR (toSqlKey 870)}>
+    <a href=@{UserByIdR (toSqlKey 870)}>
       Juan Raphael Diaz Simões
   <li>
-    <a href=@{UserR (toSqlKey 418)}>
+    <a href=@{UserByIdR (toSqlKey 418)}>
       Brandon Skari
   <li>
     Don Smith
   <li>
-    <a href=@{UserR (toSqlKey 634)}>
+    <a href=@{UserByIdR (toSqlKey 634)}>
       Leon P Smith
   <li>
-    <a href=@{UserR (toSqlKey 544)}>
+    <a href=@{UserByIdR (toSqlKey 544)}>
       Nick Smith
   <li>
     Jim Snow
   <li>
     Khaled Soliman
   <li>
-    <a href=@{UserR (toSqlKey 316)}>
+    <a href=@{UserByIdR (toSqlKey 316)}>
       Rodrigo Souto
   <li>
-    <a href=@{UserR (toSqlKey 297)}>
+    <a href=@{UserByIdR (toSqlKey 297)}>
       Adam Souzis
   <li>
     Adam Spitz
   <li>
     Charles Stanhope
   <li>
-    <a href=@{UserR (toSqlKey 606)}>
+    <a href=@{UserByIdR (toSqlKey 606)}>
       Stephen Starkey
   <li>
-    <a href=@{UserR (toSqlKey 482)}>
+    <a href=@{UserByIdR (toSqlKey 482)}>
       Startifact
   <li>
     statuszer0
   <li>
-    <a href=@{UserR (toSqlKey 568)}>
+    <a href=@{UserByIdR (toSqlKey 568)}>
       Bob Steffes
   <li>
     Hugh Stimson
@@ -517,10 +517,10 @@
   <li>
     Zachary Tellman
   <li>
-    <a href=@{UserR (toSqlKey 874)}>
+    <a href=@{UserByIdR (toSqlKey 874)}>
       Seth Tisue
   <li>
-    <a href=@{UserR (toSqlKey 263)}>
+    <a href=@{UserByIdR (toSqlKey 263)}>
       Frank Thomas
   <li>
     Greg Tomei
@@ -529,7 +529,7 @@
   <li>
     Christian Uhl
   <li>
-    <a href=@{UserR (toSqlKey 423)}>
+    <a href=@{UserByIdR (toSqlKey 423)}>
       Vakranas
   <li>
     Timothy Vollmer
@@ -538,54 +538,54 @@
   <li>
     Markus Vuorio (Maakuth)
   <li>
-    <a href=@{UserR (toSqlKey 590)}>
+    <a href=@{UserByIdR (toSqlKey 590)}>
       Tobias Gulbrandsen Waaler
   <li>
-    <a href=@{UserR (toSqlKey 614)}>
+    <a href=@{UserByIdR (toSqlKey 614)}>
       Albert Wavering
   <li>
-    <a href=@{UserR (toSqlKey 640)}>
+    <a href=@{UserByIdR (toSqlKey 640)}>
       Christopher Webber, GNU MediaGoblin
   <li>
-    <a href=@{UserR (toSqlKey 351)}>
+    <a href=@{UserByIdR (toSqlKey 351)}>
       Stephen Paul Weber (singpolyma)
   <li>
-    <a href=@{UserR (toSqlKey 399)}>
+    <a href=@{UserByIdR (toSqlKey 399)}>
       Patrick Weemeeuw
   <li>
     David Whitman
   <li>
-    <a href=@{UserR (toSqlKey 495)}>
+    <a href=@{UserByIdR (toSqlKey 495)}>
       Kevin Wichmann
   <li>
-    <a href=@{UserR (toSqlKey 458)}>
+    <a href=@{UserByIdR (toSqlKey 458)}>
       Alex Willemsma
   <li>
     Carl Witty
   <li>
-    <a href=@{UserR (toSqlKey 23)}>
+    <a href=@{UserByIdR (toSqlKey 23)}>
       Barry & Devorah Wolf
   <li>
-    <a href=@{UserR (toSqlKey 321)}>
+    <a href=@{UserByIdR (toSqlKey 321)}>
       Nicolas Wormser
   <li>
-    <a href=@{UserR (toSqlKey 415)}>
+    <a href=@{UserByIdR (toSqlKey 415)}>
       Thomas Wrenn
   <li>
-    <a href=@{UserR (toSqlKey 488)}>
+    <a href=@{UserByIdR (toSqlKey 488)}>
       Daniel Yokomizo
   <li>
-    <a href=@{UserR (toSqlKey 272)}>
+    <a href=@{UserByIdR (toSqlKey 272)}>
       Brent Yorgey
   <li>
     Philip Young
   <li>
-    <a href=@{UserR (toSqlKey 908)}>
+    <a href=@{UserByIdR (toSqlKey 908)}>
       Milan Zamazal
   <li>
     Shafiq Akram Zakaria
   <li>
-    <a href=@{UserR (toSqlKey 406)}>
+    <a href=@{UserByIdR (toSqlKey 406)}>
       Massimo Zaniboni
   <li>
     Jan Zernisch

@@ -14,6 +14,7 @@ getNewUserDiscussionR :: UserId -> Handler Html
 getNewUserDiscussionR user_id = do
     void requireAuth
     let widget = commentNewTopicFormWidget
+    user <- runDB $ get404 user_id
     defaultLayout $(widgetFile "user_discussion_wrapper")
 
 postNewUserDiscussionR :: UserId -> Handler Html

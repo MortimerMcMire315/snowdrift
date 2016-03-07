@@ -47,7 +47,8 @@ postProjectNotificationsR user_id project_id = do
                 runDB $ updateProjectNotificationPrefDB
                     user_id project_id ntype ndeliv
             alertSuccess "Successfully updated the notification preferences."
-            redirect (UserR user_id)
+            user <- runDB $ get404 user_id
+            redirect $ UserR $ userNick user
         _ -> do
             project <- runYDB $ get404 project_id
             alertDanger "Failed to update the notification preferences."
