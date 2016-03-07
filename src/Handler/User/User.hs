@@ -5,8 +5,8 @@ import Import
 import Handler.User.Utils (checkEditUser, startEmailVerification)
 import Model.User
 
-postUserR :: UserId -> Handler Html
-postUserR user_id = do
+postUserByIdR :: UserId -> Handler Html
+postUserByIdR user_id = do
     user <- runDB $ get404 user_id
     void $ checkEditUser user_id
     memail <- runDB $ fetchUserEmail user_id
